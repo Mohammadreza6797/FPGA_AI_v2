@@ -1,0 +1,271 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Jan 20 20:44:46 2025
+# Process ID: 9796
+# Current directory: C:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.runs/design_1_ProcessAndFIFO_0_0_synth_1
+# Command line: vivado.exe -log design_1_ProcessAndFIFO_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_ProcessAndFIFO_0_0.tcl
+# Log file: C:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.runs/design_1_ProcessAndFIFO_0_0_synth_1/design_1_ProcessAndFIFO_0_0.vds
+# Journal file: C:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.runs/design_1_ProcessAndFIFO_0_0_synth_1\vivado.jou
+# Running On: DESKTOP-TT327LJ, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 8, Host memory: 34191 MB
+#-----------------------------------------------------------
+source design_1_ProcessAndFIFO_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1003.285 ; gain = 119.008
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Mohammadreza/Desktop/DMA_TEST/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/InstalledProgram/Vivado/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_ProcessAndFIFO_0_0
+Command: synth_design -top design_1_ProcessAndFIFO_0_0 -part xc7z020clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5468
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/InstalledProgram/Vivado/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1852.957 ; gain = 409.691
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_ProcessAndFIFO_0_0' [c:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.gen/sources_1/bd/design_1/ip/design_1_ProcessAndFIFO_0_0/synth/design_1_ProcessAndFIFO_0_0.vhd:72]
+INFO: [Synth 8-3491] module 'ProcessAndFIFO' declared at 'c:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.gen/sources_1/bd/design_1/ipshared/c835/ProcessAndFIFO.vhd:35' bound to instance 'U0' of component 'ProcessAndFIFO' [c:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.gen/sources_1/bd/design_1/ip/design_1_ProcessAndFIFO_0_0/synth/design_1_ProcessAndFIFO_0_0.vhd:115]
+INFO: [Synth 8-638] synthesizing module 'ProcessAndFIFO' [c:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.gen/sources_1/bd/design_1/ipshared/c835/ProcessAndFIFO.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'ProcessAndFIFO' (0#1) [c:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.gen/sources_1/bd/design_1/ipshared/c835/ProcessAndFIFO.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'design_1_ProcessAndFIFO_0_0' (0#1) [c:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.gen/sources_1/bd/design_1/ip/design_1_ProcessAndFIFO_0_0/synth/design_1_ProcessAndFIFO_0_0.vhd:72]
+WARNING: [Synth 8-7129] Port STRBIn[3] in module ProcessAndFIFO is either unconnected or has no load
+WARNING: [Synth 8-7129] Port STRBIn[2] in module ProcessAndFIFO is either unconnected or has no load
+WARNING: [Synth 8-7129] Port STRBIn[1] in module ProcessAndFIFO is either unconnected or has no load
+WARNING: [Synth 8-7129] Port STRBIn[0] in module ProcessAndFIFO is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1949.328 ; gain = 506.062
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1949.328 ; gain = 506.062
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1949.328 ; gain = 506.062
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1949.328 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1992.945 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1992.980 ; gain = 0.035
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/InstalledProgram/Vivado/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    3 Bit       Adders := 3     
+	   3 Input    3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---RAMs : 
+	              256 Bit	(8 X 32 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-3917] design design_1_ProcessAndFIFO_0_0 has port STRBOut[3] driven by constant 1
+INFO: [Synth 8-3917] design design_1_ProcessAndFIFO_0_0 has port STRBOut[2] driven by constant 1
+INFO: [Synth 8-3917] design design_1_ProcessAndFIFO_0_0 has port STRBOut[1] driven by constant 1
+INFO: [Synth 8-3917] design design_1_ProcessAndFIFO_0_0 has port STRBOut[0] driven by constant 1
+WARNING: [Synth 8-7129] Port STRBIn[3] in module design_1_ProcessAndFIFO_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port STRBIn[2] in module design_1_ProcessAndFIFO_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port STRBIn[1] in module design_1_ProcessAndFIFO_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port STRBIn[0] in module design_1_ProcessAndFIFO_0_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++----------------------------+---------------+-----------+----------------------+----------------+
+|Module Name                 | RTL Object    | Inference | Size (Depth x Width) | Primitives     | 
++----------------------------+---------------+-----------+----------------------+----------------+
+|design_1_ProcessAndFIFO_0_0 | U0/myBuff_reg | Implied   | 8 x 32               | RAM16X1D x 32  | 
++----------------------------+---------------+-----------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++----------------------------+---------------+-----------+----------------------+----------------+
+|Module Name                 | RTL Object    | Inference | Size (Depth x Width) | Primitives     | 
++----------------------------+---------------+-----------+----------------------+----------------+
+|design_1_ProcessAndFIFO_0_0 | U0/myBuff_reg | Implied   | 8 x 32               | RAM16X1D x 32  | 
++----------------------------+---------------+-----------+----------------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |LUT3     |     2|
+|2     |LUT4     |     3|
+|3     |LUT5     |    39|
+|4     |LUT6     |     4|
+|5     |RAM16X1D |    32|
+|6     |FDRE     |    45|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1992.980 ; gain = 549.715
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:29 . Memory (MB): peak = 1992.980 ; gain = 506.062
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1992.980 ; gain = 549.715
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1992.980 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 32 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1992.980 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 32 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 32 instances
+
+Synth Design complete, checksum: 22f4c9c5
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:45 . Memory (MB): peak = 1992.980 ; gain = 951.160
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.runs/design_1_ProcessAndFIFO_0_0_synth_1/design_1_ProcessAndFIFO_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_ProcessAndFIFO_0_0, cache-ID = 15dc1a6eb524086d
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Mohammadreza/Desktop/DMA_TEST/DMA_Test/DMA_Test.runs/design_1_ProcessAndFIFO_0_0_synth_1/design_1_ProcessAndFIFO_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_ProcessAndFIFO_0_0_utilization_synth.rpt -pb design_1_ProcessAndFIFO_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jan 20 20:45:50 2025...

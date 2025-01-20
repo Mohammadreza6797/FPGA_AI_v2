@@ -1,0 +1,10 @@
+2025-01-20T21:01:56.504016300255-21:01:56 **** Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
+000-make all 
+000-make --no-print-directory pre-build
+000-a9-linaro-pre-build-step
+000-' '
+000-make --no-print-directory main-build
+000-make[1]: Nothing to be done for 'main-build'.
+00255-
+21:01:56 Build Finished (took 293ms)
+

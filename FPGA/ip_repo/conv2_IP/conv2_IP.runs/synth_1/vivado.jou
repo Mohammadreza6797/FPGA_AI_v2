@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Dec 31 21:59:49 2024
+# Process ID: 9224
+# Current directory: C:/Users/Mohammadreza/Desktop/Test/FPGA_AI/Conv2/conv2_IP/conv2_IP.runs/synth_1
+# Command line: vivado.exe -log conv2_Handler.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source conv2_Handler.tcl
+# Log file: C:/Users/Mohammadreza/Desktop/Test/FPGA_AI/Conv2/conv2_IP/conv2_IP.runs/synth_1/conv2_Handler.vds
+# Journal file: C:/Users/Mohammadreza/Desktop/Test/FPGA_AI/Conv2/conv2_IP/conv2_IP.runs/synth_1\vivado.jou
+# Running On: DESKTOP-TT327LJ, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 8, Host memory: 34191 MB
+#-----------------------------------------------------------
+source conv2_Handler.tcl -notrace
