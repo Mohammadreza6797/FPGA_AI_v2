@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;xaxidma_example_sg_poll_1/src/process.c&apos; to &apos;Process.c&apos;" description="Rename resource &apos;process.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/process.c" name="Process.c" stamp="1737407669501" updateReferences="true"/>
+</session>

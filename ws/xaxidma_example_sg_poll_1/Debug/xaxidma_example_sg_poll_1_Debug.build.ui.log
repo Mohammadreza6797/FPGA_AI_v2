@@ -1,10 +1,32 @@
-2025-01-20T21:01:56.504016300255-21:01:56 **** Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
+2025-01-21T00:31:58.744654900255-00:31:58 **** Incremental Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
 000-make all 
 000-make --no-print-directory pre-build
 000-a9-linaro-pre-build-step
 000-' '
 000-make --no-print-directory main-build
-000-make[1]: Nothing to be done for 'main-build'.
+000-'Building file: ../src/xaxidma_example_sg_poll.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xaxidma_example_sg_poll.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/xaxidma_example_sg_poll.d" -MT"src/xaxidma_example_sg_poll.o" -o "src/xaxidma_example_sg_poll.o" "../src/xaxidma_example_sg_poll.c"
+000/xaxidma_example_sg_poll_1/src/xaxidma_example_sg_poll.c94-1-1#warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, DEFAULT SET TO 0x01000000 [-Wcpp]1-../src/xaxidma_example_sg_poll.c:94:2: warning: #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, DEFAULT SET TO 0x01000000 [-Wcpp]
+000-   94 | #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, \
+000-      |  ^~~~~~~
+000-../src/xaxidma_example_sg_poll.c: In function 'SendPacket':
+000/xaxidma_example_sg_poll_1/src/xaxidma_example_sg_poll.c474-1-1unused variable 'BdCurPtr' [-Wunused-variable]1-../src/xaxidma_example_sg_poll.c:474:29: warning: unused variable 'BdCurPtr' [-Wunused-variable]
+000-  474 |         XAxiDma_Bd *BdPtr, *BdCurPtr;
+000-      |                             ^~~~~~~~
+000-'Finished building: ../src/xaxidma_example_sg_poll.c'
+000-' '
+000-'Building target: xaxidma_example_sg_poll_1.elf'
+000-'Invoking: ARM v7 gcc linker'
+000-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bsplib/lib -o "xaxidma_example_sg_poll_1.elf"  ./src/xaxidma_example_sg_poll.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+000-'Finished building target: xaxidma_example_sg_poll_1.elf'
+000-' '
+000-'Invoking: ARM v7 Print Size'
+000-arm-none-eabi-size xaxidma_example_sg_poll_1.elf  |tee "xaxidma_example_sg_poll_1.elf.size"
+000-   text	   data	    bss	    dec	    hex	filename
+000-  37749	   2256	  24504	  64509	   fbfd	xaxidma_example_sg_poll_1.elf
+000-'Finished building: xaxidma_example_sg_poll_1.elf.size'
+000-' '
 00255-
-21:01:56 Build Finished (took 293ms)
+00:31:59 Build Finished (took 794ms)
 

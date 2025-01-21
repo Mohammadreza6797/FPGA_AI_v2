@@ -1,10 +1,32 @@
-21:01:56 **** Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
+00:31:58 **** Incremental Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
 ' '
 make --no-print-directory main-build
-make[1]: Nothing to be done for 'main-build'.
+'Building file: ../src/xaxidma_example_sg_poll.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xaxidma_example_sg_poll.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/xaxidma_example_sg_poll.d" -MT"src/xaxidma_example_sg_poll.o" -o "src/xaxidma_example_sg_poll.o" "../src/xaxidma_example_sg_poll.c"
+../src/xaxidma_example_sg_poll.c:94:2: warning: #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, DEFAULT SET TO 0x01000000 [-Wcpp]
+   94 | #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, \
+      |  ^~~~~~~
+../src/xaxidma_example_sg_poll.c: In function 'SendPacket':
+../src/xaxidma_example_sg_poll.c:474:29: warning: unused variable 'BdCurPtr' [-Wunused-variable]
+  474 |         XAxiDma_Bd *BdPtr, *BdCurPtr;
+      |                             ^~~~~~~~
+'Finished building: ../src/xaxidma_example_sg_poll.c'
+' '
+'Building target: xaxidma_example_sg_poll_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bsplib/lib -o "xaxidma_example_sg_poll_1.elf"  ./src/xaxidma_example_sg_poll.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: xaxidma_example_sg_poll_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xaxidma_example_sg_poll_1.elf  |tee "xaxidma_example_sg_poll_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  37749	   2256	  24504	  64509	   fbfd	xaxidma_example_sg_poll_1.elf
+'Finished building: xaxidma_example_sg_poll_1.elf.size'
+' '
 
-21:01:56 Build Finished (took 293ms)
+00:31:59 Build Finished (took 794ms)
 

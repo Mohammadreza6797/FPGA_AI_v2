@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;DMA&apos;" deleteContents="false" description="Delete resource &apos;DMA&apos;" element1="/DMA" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1737394199397"/>&#x0A;<refactoring comment="Delete resource &apos;xaxidma_example_sg_poll_1_system&apos;" deleteContents="false" description="Delete resource &apos;xaxidma_example_sg_poll_1_system&apos;" element1="/xaxidma_example_sg_poll_1_system" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1737394207566"/>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;DMA&apos;" deleteContents="true" description="Delete resource &apos;DMA&apos;" element1="/DMA" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1737406751728"/>
 </session>

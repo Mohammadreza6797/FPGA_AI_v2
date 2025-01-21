@@ -229,6 +229,7 @@ int main(void)
 	}
 
 	return XST_SUCCESS;
+
 }
 
 #if defined(XPAR_UARTNS550_0_BASEADDR)

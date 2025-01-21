@@ -3,6 +3,7 @@
 	<name>xaxidma_example_sg_poll_1</name>
 	<comment>Created by Vitis v2022.2</comment>
 	<projects>
+		<project>DMA</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -1,0 +1,13 @@
+#include "xbasic_types.h"
+#include "Process.h"
+
+
+uint32_t *Image;
+uint32_t *Conv2_Result, *MaxPooling;
+uint32_t Weight[16][9];
+
+
+void Process_init(void)
+{
+	Image = (uintt32_t)malloc(32*32*sizeof(uint32_t));
+}

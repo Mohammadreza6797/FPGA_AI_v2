@@ -1,0 +1,9 @@
+#include "xbasic_types.h"
+#include "Process.h"
+
+
+uint32_t *Image;
+uint32_t *Conv2_Result, *MaxPooling;
+uint32_t Weight[16][9];
+
+

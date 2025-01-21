@@ -1,10 +1,10 @@
-21:01:57 **** Build of configuration Debug for project xaxidma_example_sg_poll_1_system ****
+00:31:59 **** Incremental Build of configuration Debug for project xaxidma_example_sg_poll_1_system ****
 make all 
 Generating bif file for the system project
-generate_system_bif.bat 50432 C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/DMA.xpfm standalone_domain C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/xaxidma_example_sg_poll_1_system/Debug/system.bif
-sdcard_gen --xpfm C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/DMA.xpfm --sys_config DMA --bif C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/xaxidma_example_sg_poll_1_system/Debug/system.bif --bitstream C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit --elf C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf,ps7_cortexa9_0
-creating BOOT.BIN using C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit
-Running D:/InstalledProgram/Vivado/Vitis/2022.2/bin/bootgen  -image C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/xaxidma_example_sg_poll_1_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN
+generate_system_bif.bat 50106 C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/DMA.xpfm standalone_domain C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1_system/Debug/system.bif
+sdcard_gen --xpfm C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/DMA.xpfm --sys_config DMA --bif C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1_system/Debug/system.bif --bitstream C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit --elf C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf,ps7_cortexa9_0
+creating BOOT.BIN using C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit
+Running E:/InstalledProgram/Vivado/Vitis/2022.2/bin/bootgen  -image C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN
 
-21:02:02 Build Finished (took 5s.586ms)
+00:32:04 Build Finished (took 4s.507ms)
 
