@@ -195,3 +195,216 @@ configparams force-mem-access 0
 
 21:21:11 INFO  : Disconnected from the channel tcfchan#7.
 21:23:57 INFO  : Checking for BSP changes to sync application flags for project 'xaxidma_example_sg_poll_1'...
+23:26:26 DEBUG : Logs will be stored at 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/IDE.log'.
+23:26:27 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\user\Desktop\FPGA_DMA2\FPGA_AI_v2\ws\temp_xsdb_launch_script.tcl
+23:26:30 INFO  : XSCT server has started successfully.
+23:26:30 INFO  : plnx-install-location is set to ''
+23:26:30 INFO  : Successfully done setting XSCT server connection channel  
+23:26:30 INFO  : Successfully done setting workspace for the tool. 
+23:26:31 INFO  : Successfully done query RDI_DATADIR 
+23:26:31 INFO  : Registering command handlers for Vitis TCF services
+23:26:32 INFO  : Platform repository initialization has completed.
+00:26:38 INFO  : Result from executing command 'getProjects': DMA
+00:26:38 INFO  : Result from executing command 'getPlatforms': DMA|C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/DMA.xpfm;DMA|C:/Users/user/Desktop/TesstDMA_testagian_fuck/ws/DMA/export/DMA/DMA.xpfm;xilinx_vck190_base_202220_1|E:/InstalledProgram/Vivado/Vitis/2022.2/base_platforms/xilinx_vck190_base_202220_1/xilinx_vck190_base_202220_1.xpfm;xilinx_vck190_base_dfx_202220_1|E:/InstalledProgram/Vivado/Vitis/2022.2/base_platforms/xilinx_vck190_base_dfx_202220_1/xilinx_vck190_base_dfx_202220_1.xpfm;xilinx_vmk180_base_202220_1|E:/InstalledProgram/Vivado/Vitis/2022.2/base_platforms/xilinx_vmk180_base_202220_1/xilinx_vmk180_base_202220_1.xpfm;xilinx_zcu102_base_202220_1|E:/InstalledProgram/Vivado/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|E:/InstalledProgram/Vivado/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|E:/InstalledProgram/Vivado/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+00:26:39 INFO  : Checking for BSP changes to sync application flags for project 'xaxidma_example_sg_poll_1'...
+00:27:17 INFO  : Checking for BSP changes to sync application flags for project 'xaxidma_example_sg_poll_1'...
+00:27:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:27:35 INFO  : Jtag cable 'Digilent JTAG-HS1 210512180081' is selected.
+00:27:35 INFO  : 'jtag frequency' command is executed.
+00:27:35 INFO  : Context for 'APU' is selected.
+00:27:35 INFO  : System reset is completed.
+00:27:38 INFO  : 'after 3000' command is executed.
+00:27:38 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}' command is executed.
+00:27:42 INFO  : Device configured successfully with "C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit"
+00:27:42 INFO  : Context for 'APU' is selected.
+00:27:42 INFO  : Hardware design and registers information is loaded from 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa'.
+00:27:42 INFO  : 'configparams force-mem-access 1' command is executed.
+00:27:42 INFO  : Context for 'APU' is selected.
+00:27:42 INFO  : Sourcing of 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl' is done.
+00:27:42 INFO  : 'ps7_init' command is executed.
+00:27:42 INFO  : 'ps7_post_config' command is executed.
+00:27:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:27:43 INFO  : The application 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:27:43 INFO  : 'configparams force-mem-access 0' command is executed.
+00:27:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}
+fpga -file C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:30:49 INFO  : Checking for BSP changes to sync application flags for project 'xaxidma_example_sg_poll_1'...
+00:30:54 INFO  : Disconnected from the channel tcfchan#3.
+00:30:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:30:58 INFO  : Jtag cable 'Digilent JTAG-HS1 210512180081' is selected.
+00:30:58 INFO  : 'jtag frequency' command is executed.
+00:30:58 INFO  : Context for 'APU' is selected.
+00:30:58 INFO  : System reset is completed.
+00:31:01 INFO  : 'after 3000' command is executed.
+00:31:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}' command is executed.
+00:31:05 INFO  : Device configured successfully with "C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit"
+00:31:05 INFO  : Context for 'APU' is selected.
+00:31:05 INFO  : Hardware design and registers information is loaded from 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa'.
+00:31:05 INFO  : 'configparams force-mem-access 1' command is executed.
+00:31:05 INFO  : Context for 'APU' is selected.
+00:31:05 INFO  : Sourcing of 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl' is done.
+00:31:05 INFO  : 'ps7_init' command is executed.
+00:31:05 INFO  : 'ps7_post_config' command is executed.
+00:31:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:31:06 INFO  : The application 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:31:06 INFO  : 'configparams force-mem-access 0' command is executed.
+00:31:06 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}
+fpga -file C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:33:33 INFO  : Checking for BSP changes to sync application flags for project 'xaxidma_example_sg_poll_1'...
+00:34:23 INFO  : Checking for BSP changes to sync application flags for project 'xaxidma_example_sg_poll_1'...
+00:34:37 INFO  : Disconnected from the channel tcfchan#5.
+00:34:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:34:39 INFO  : Jtag cable 'Digilent JTAG-HS1 210512180081' is selected.
+00:34:39 INFO  : 'jtag frequency' command is executed.
+00:34:39 INFO  : Context for 'APU' is selected.
+00:34:40 INFO  : System reset is completed.
+00:34:43 INFO  : 'after 3000' command is executed.
+00:34:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}' command is executed.
+00:34:47 INFO  : Device configured successfully with "C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit"
+00:34:47 INFO  : Context for 'APU' is selected.
+00:34:47 INFO  : Hardware design and registers information is loaded from 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa'.
+00:34:47 INFO  : 'configparams force-mem-access 1' command is executed.
+00:34:47 INFO  : Context for 'APU' is selected.
+00:34:47 INFO  : Sourcing of 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl' is done.
+00:34:47 INFO  : 'ps7_init' command is executed.
+00:34:47 INFO  : 'ps7_post_config' command is executed.
+00:34:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:34:48 INFO  : The application 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:34:48 INFO  : 'configparams force-mem-access 0' command is executed.
+00:34:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}
+fpga -file C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:36:15 DEBUG : Logs will be stored at 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/IDE.log'.
+00:36:15 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\user\Desktop\FPGA_DMA2\FPGA_AI_v2\ws\temp_xsdb_launch_script.tcl
+00:36:19 INFO  : XSCT server has started successfully.
+00:36:19 INFO  : plnx-install-location is set to ''
+00:36:19 INFO  : Successfully done setting XSCT server connection channel  
+00:36:19 INFO  : Successfully done setting workspace for the tool. 
+00:36:19 INFO  : Successfully done query RDI_DATADIR 
+00:36:19 INFO  : Registering command handlers for Vitis TCF services
+00:36:20 INFO  : Platform repository initialization has completed.
+00:36:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:36:31 INFO  : Jtag cable 'Digilent JTAG-HS1 210512180081' is selected.
+00:36:31 INFO  : 'jtag frequency' command is executed.
+00:36:31 INFO  : Context for 'APU' is selected.
+00:36:32 INFO  : System reset is completed.
+00:36:35 INFO  : 'after 3000' command is executed.
+00:36:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}' command is executed.
+00:36:39 INFO  : Device configured successfully with "C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit"
+00:36:39 INFO  : Context for 'APU' is selected.
+00:36:39 INFO  : Hardware design and registers information is loaded from 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa'.
+00:36:39 INFO  : 'configparams force-mem-access 1' command is executed.
+00:36:39 INFO  : Context for 'APU' is selected.
+00:36:39 INFO  : Sourcing of 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl' is done.
+00:36:39 INFO  : 'ps7_init' command is executed.
+00:36:39 INFO  : 'ps7_post_config' command is executed.
+00:36:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:36:40 INFO  : The application 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:36:40 INFO  : 'configparams force-mem-access 0' command is executed.
+00:36:40 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}
+fpga -file C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:53:50 INFO  : Disconnected from the channel tcfchan#1.
+00:53:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:53:51 INFO  : Jtag cable 'Digilent JTAG-HS1 210512180081' is selected.
+00:53:51 INFO  : 'jtag frequency' command is executed.
+00:53:52 INFO  : Context for 'APU' is selected.
+00:53:52 INFO  : System reset is completed.
+00:53:55 INFO  : 'after 3000' command is executed.
+00:53:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}' command is executed.
+00:53:59 INFO  : Device configured successfully with "C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit"
+00:53:59 INFO  : Context for 'APU' is selected.
+00:54:04 INFO  : Hardware design and registers information is loaded from 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa'.
+00:54:04 INFO  : 'configparams force-mem-access 1' command is executed.
+00:54:04 INFO  : Context for 'APU' is selected.
+00:54:04 INFO  : Sourcing of 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl' is done.
+00:54:05 INFO  : 'ps7_init' command is executed.
+00:54:05 INFO  : 'ps7_post_config' command is executed.
+00:54:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:54:05 INFO  : The application 'C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:54:05 INFO  : 'configparams force-mem-access 0' command is executed.
+00:54:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS1 210512180081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS1-210512180081-23727093-0"}
+fpga -file C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/xaxidma_example_sg_poll_1/Debug/xaxidma_example_sg_poll_1.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+

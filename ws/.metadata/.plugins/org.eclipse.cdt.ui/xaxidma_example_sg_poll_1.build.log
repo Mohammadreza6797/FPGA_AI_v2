@@ -1,4 +1,4 @@
-21:23:57 **** Incremental Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
+00:34:23 **** Incremental Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
@@ -6,65 +6,47 @@ a9-linaro-pre-build-step
 make --no-print-directory main-build
 'Building file: ../src/Process.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/Process.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/Process.d" -MT"src/Process.o" -o "src/Process.o" "../src/Process.c"
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/Process.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/Process.d" -MT"src/Process.o" -o "src/Process.o" "../src/Process.c"
 In file included from ../src/Process.c:1:
-C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
   102 | #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
       |  ^~~~~~~
-C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
   103 | #warning  Please refer the Standalone BSP UG647 for further details
       |  ^~~~~~~
-../src/Process.c: In function 'Process_init':
-../src/Process.c:13:15: warning: assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long unsigned int' makes pointer from integer without a cast [-Wint-conversion]
-   13 |         Image = (uint32_t)malloc(32*32*sizeof(uint32_t));
-      |               ^
-../src/Process.c:14:22: warning: assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long int' makes pointer from integer without a cast [-Wint-conversion]
-   14 |         Conv2_Result = (int32_t)malloc(30*30*sizeof(int32_t));
-      |                      ^
-../src/Process.c:15:20: warning: assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long int' makes pointer from integer without a cast [-Wint-conversion]
-   15 |         MaxPooling = (int32_t)malloc(15*15*sizeof(int32_t));
-      |                    ^
-../src/Process.c: In function 'Process_Conv2':
-../src/Process.c:26:41: warning: statement with no effect [-Wunused-value]
-   26 |         for(uint32_t row = 0; row < 30; row)
-      |                                         ^~~
-../src/Process.c:28:55: warning: statement with no effect [-Wunused-value]
-   28 |                 for(uint32_t column = 0; column < 30; column)
-      |                                                       ^~~~~~
-../src/Process.c:36:65: warning: statement with no effect [-Wunused-value]
-   36 |                                 for(uint32_t fIn = 0; fIn < 16; fIn)
-      |                                                                 ^~~
-../src/Process.c:22:25: warning: unused variable 'weight' [-Wunused-variable]
-   22 |         uint32_t pixel, weight;
-      |                         ^~~~~~
-../src/Process.c:53:106: warning: 'p3' may be used uninitialized [-Wmaybe-uninitialized]
-   53 |                                         res[fIn] += (uint32_t)(p1*w1) + (uint32_t)(p2*w2) + (uint32_t)(p3*w3);
-      |                                                                                                       ~~~^~~~
 'Finished building: ../src/Process.c'
 ' '
 'Building file: ../src/xaxidma_example_sg_poll.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xaxidma_example_sg_poll.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/xaxidma_example_sg_poll.d" -MT"src/xaxidma_example_sg_poll.o" -o "src/xaxidma_example_sg_poll.o" "../src/xaxidma_example_sg_poll.c"
-../src/xaxidma_example_sg_poll.c:94:2: warning: #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, DEFAULT SET TO 0x01000000 [-Wcpp]
-   94 | #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, \
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xaxidma_example_sg_poll.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/xaxidma_example_sg_poll.d" -MT"src/xaxidma_example_sg_poll.o" -o "src/xaxidma_example_sg_poll.o" "../src/xaxidma_example_sg_poll.c"
+In file included from ../src/Process.h:1,
+                 from ../src/xaxidma_example_sg_poll.c:62:
+C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+  102 | #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+      |  ^~~~~~~
+C:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+  103 | #warning  Please refer the Standalone BSP UG647 for further details
+      |  ^~~~~~~
+../src/xaxidma_example_sg_poll.c:95:2: warning: #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, DEFAULT SET TO 0x01000000 [-Wcpp]
+   95 | #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, \
       |  ^~~~~~~
 ../src/xaxidma_example_sg_poll.c: In function 'SendPacket':
-../src/xaxidma_example_sg_poll.c:477:29: warning: unused variable 'BdCurPtr' [-Wunused-variable]
-  477 |         XAxiDma_Bd *BdPtr, *BdCurPtr;
+../src/xaxidma_example_sg_poll.c:512:29: warning: unused variable 'BdCurPtr' [-Wunused-variable]
+  512 |         XAxiDma_Bd *BdPtr, *BdCurPtr;
       |                             ^~~~~~~~
 'Finished building: ../src/xaxidma_example_sg_poll.c'
 ' '
 'Building target: xaxidma_example_sg_poll_1.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bsplib/lib -o "xaxidma_example_sg_poll_1.elf"  ./src/Process.o ./src/xaxidma_example_sg_poll.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bsplib/lib -o "xaxidma_example_sg_poll_1.elf"  ./src/Process.o ./src/xaxidma_example_sg_poll.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 'Finished building target: xaxidma_example_sg_poll_1.elf'
 ' '
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size xaxidma_example_sg_poll_1.elf  |tee "xaxidma_example_sg_poll_1.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  38709	   2256	2114120	2155085	 20e24d	xaxidma_example_sg_poll_1.elf
+  36937	   2184	2114120	2153241	 20db19	xaxidma_example_sg_poll_1.elf
 'Finished building: xaxidma_example_sg_poll_1.elf.size'
 ' '
 
-21:24:00 Build Finished (took 2s.313ms)
+00:34:24 Build Finished (took 979ms)
 

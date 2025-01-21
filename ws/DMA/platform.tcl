@@ -19,3 +19,4 @@ platform active {DMA}
 platform generate
 platform active {DMA}
 platform generate -domains 
+platform generate -domains standalone_domain,zynq_fsbl 

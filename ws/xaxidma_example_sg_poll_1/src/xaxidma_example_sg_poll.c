@@ -1,7 +1,7 @@
 /******************************************************************************
-* Copyright (C) 2010 - 2022 Xilinx, Inc.  All rights reserved.
-* SPDX-License-Identifier: MIT
-******************************************************************************/
+ * Copyright (C) 2010 - 2022 Xilinx, Inc.  All rights reserved.
+ * SPDX-License-Identifier: MIT
+ ******************************************************************************/
 
 /*****************************************************************************/
 /**
@@ -59,6 +59,7 @@
 #include "xaxidma.h"
 #include "xparameters.h"
 #include "xdebug.h"
+#include "Process.h"
 
 #ifdef __aarch64__
 #include "xil_mmu.h"
@@ -92,7 +93,7 @@ extern void xil_printf(const char *format, ...);
 
 #ifndef DDR_BASE_ADDR
 #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, \
-			DEFAULT SET TO 0x01000000
+		DEFAULT SET TO 0x01000000
 #define MEM_BASE_ADDR		0x01000000
 #else
 #define MEM_BASE_ADDR		(DDR_BASE_ADDR + 0x1000000)
@@ -142,29 +143,63 @@ u32 *Packet = (u32 *) TX_BUFFER_BASE;
 
 /*****************************************************************************/
 /**
-*
-* Main function
-*
-* This function is the main entry of the tests on DMA core. It sets up
-* DMA engine to be ready to receive and send packets, then a packet is
-* transmitted and will be verified after it is received via the DMA loopback
-* widget.
-*
-* @param	None
-*
-* @return
-*		- XST_SUCCESS if test passes
-*		- XST_FAILURE if test fails.
-*
-* @note		None.
-*
-*
-*
-******************************************************************************/
+ *
+ * Main function
+ *
+ * This function is the main entry of the tests on DMA core. It sets up
+ * DMA engine to be ready to receive and send packets, then a packet is
+ * transmitted and will be verified after it is received via the DMA loopback
+ * widget.
+ *
+ * @param	None
+ *
+ * @return
+ *		- XST_SUCCESS if test passes
+ *		- XST_FAILURE if test fails.
+ *
+ * @note		None.
+ *
+ *
+ *
+ ******************************************************************************/
+uint8_t cmd = 0;
 int main(void)
 {
 	int Status;
 	XAxiDma_Config *Config;
+
+	Process_init();
+	/*Example Weight*/
+	for( uint8_t j = 0; j < 16; j++)
+	{
+		for(uint8_t i = 1; i < 10; i++)
+		{
+			Weight[j][i-1] = (i << 20) | (i << 10) | i;
+		}
+		Weight[j][9] = 0;
+	}
+
+	/*Example Image */
+	for(uint32_t i = 0; i< 32*32; i++)
+	{
+		*(Image + i) = i;
+	}
+	for(uint32_t i = 0; i< 9; i++)
+	{
+		uint32_t y = i + 1;
+		*(Image + (i%3) + (i /3)*32) = (y << 16) | (y << 8) | y;
+	}
+
+
+	while(1)
+	{
+		if(cmd == 1)
+		{
+			Process_Conv2_1();
+			Process_MaxPooling_1();
+			cmd = 0;
+		}
+	}
 
 #if defined(XPAR_UARTNS550_0_BASEADDR)
 
@@ -237,16 +272,16 @@ int main(void)
 #if defined(XPAR_UARTNS550_0_BASEADDR)
 /*****************************************************************************/
 /*
-*
-* Uart16550 setup routine, need to set baudrate to 9600, and data bits to 8
-*
-* @param	None
-*
-* @return	None
-*
-* @note		None.
-*
-******************************************************************************/
+ *
+ * Uart16550 setup routine, need to set baudrate to 9600, and data bits to 8
+ *
+ * @param	None
+ *
+ * @return	None
+ *
+ * @note		None.
+ *
+ ******************************************************************************/
 static void Uart550_Setup(void)
 {
 
@@ -263,17 +298,17 @@ static void Uart550_Setup(void)
 
 /*****************************************************************************/
 /**
-*
-* This function sets up RX channel of the DMA engine to be ready for packet
-* reception
-*
-* @param	AxiDmaInstPtr is the pointer to the instance of the DMA engine.
-*
-* @return	XST_SUCCESS if the setup is successful, XST_FAILURE otherwise.
-*
-* @note		None.
-*
-******************************************************************************/
+ *
+ * This function sets up RX channel of the DMA engine to be ready for packet
+ * reception
+ *
+ * @param	AxiDmaInstPtr is the pointer to the instance of the DMA engine.
+ *
+ * @return	XST_SUCCESS if the setup is successful, XST_FAILURE otherwise.
+ *
+ * @note		None.
+ *
+ ******************************************************************************/
 static int RxSetup(XAxiDma * AxiDmaInstPtr)
 {
 	XAxiDma_BdRing *RxRingPtr;
@@ -299,11 +334,11 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 
 	/* Setup Rx BD space */
 	BdCount = XAxiDma_BdRingCntCalc(XAXIDMA_BD_MINIMUM_ALIGNMENT,
-				RX_BD_SPACE_HIGH - RX_BD_SPACE_BASE + 1);
+			RX_BD_SPACE_HIGH - RX_BD_SPACE_BASE + 1);
 
 	Status = XAxiDma_BdRingCreate(RxRingPtr, RX_BD_SPACE_BASE,
-				RX_BD_SPACE_BASE,
-				XAXIDMA_BD_MINIMUM_ALIGNMENT, BdCount);
+			RX_BD_SPACE_BASE,
+			XAXIDMA_BD_MINIMUM_ALIGNMENT, BdCount);
 
 	if (Status != XST_SUCCESS) {
 		xil_printf("RX create BD ring failed %d\r\n", Status);
@@ -341,8 +376,8 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 
 		if (Status != XST_SUCCESS) {
 			xil_printf("Set buffer addr %x on BD %x failed %d\r\n",
-			    (unsigned int)RxBufferPtr,
-			    (UINTPTR)BdCurPtr, Status);
+					(unsigned int)RxBufferPtr,
+					(UINTPTR)BdCurPtr, Status);
 
 			return XST_FAILURE;
 		}
@@ -351,7 +386,7 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 				RxRingPtr->MaxTransferLen);
 		if (Status != XST_SUCCESS) {
 			xil_printf("Rx set length %d on BD %x failed %d\r\n",
-			    MAX_PKT_LEN, (UINTPTR)BdCurPtr, Status);
+					MAX_PKT_LEN, (UINTPTR)BdCurPtr, Status);
 
 			return XST_FAILURE;
 		}
@@ -371,7 +406,7 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 	memset((void *)RX_BUFFER_BASE, 0, MAX_PKT_LEN);
 
 	Status = XAxiDma_BdRingToHw(RxRingPtr, FreeBdCount,
-						BdPtr);
+			BdPtr);
 	if (Status != XST_SUCCESS) {
 		xil_printf("RX submit hw failed %d\r\n", Status);
 
@@ -391,17 +426,17 @@ static int RxSetup(XAxiDma * AxiDmaInstPtr)
 
 /*****************************************************************************/
 /**
-*
-* This function sets up the TX channel of a DMA engine to be ready for packet
-* transmission
-*
-* @param	AxiDmaInstPtr is the instance pointer to the DMA engine.
-*
-* @return	XST_SUCCESS if the setup is successful, XST_FAILURE otherwise.
-*
-* @note		None.
-*
-******************************************************************************/
+ *
+ * This function sets up the TX channel of a DMA engine to be ready for packet
+ * transmission
+ *
+ * @param	AxiDmaInstPtr is the instance pointer to the DMA engine.
+ *
+ * @return	XST_SUCCESS if the setup is successful, XST_FAILURE otherwise.
+ *
+ * @note		None.
+ *
+ ******************************************************************************/
 static int TxSetup(XAxiDma * AxiDmaInstPtr)
 {
 	XAxiDma_BdRing *TxRingPtr;
@@ -422,11 +457,11 @@ static int TxSetup(XAxiDma * AxiDmaInstPtr)
 
 	/* Setup TxBD space  */
 	BdCount = XAxiDma_BdRingCntCalc(XAXIDMA_BD_MINIMUM_ALIGNMENT,
-				TX_BD_SPACE_HIGH - TX_BD_SPACE_BASE + 1);
+			TX_BD_SPACE_HIGH - TX_BD_SPACE_BASE + 1);
 
 	Status = XAxiDma_BdRingCreate(TxRingPtr, TX_BD_SPACE_BASE,
-				TX_BD_SPACE_BASE,
-				XAXIDMA_BD_MINIMUM_ALIGNMENT, BdCount);
+			TX_BD_SPACE_BASE,
+			XAXIDMA_BD_MINIMUM_ALIGNMENT, BdCount);
 	if (Status != XST_SUCCESS) {
 		xil_printf("failed create BD ring in txsetup\r\n");
 
@@ -458,17 +493,17 @@ static int TxSetup(XAxiDma * AxiDmaInstPtr)
 
 /*****************************************************************************/
 /**
-*
-* This function transmits one packet non-blockingly through the DMA engine.
-*
-* @param	AxiDmaInstPtr points to the DMA engine instance
-*
-* @return	- XST_SUCCESS if the DMA accepts the packet successfully,
-*		- XST_FAILURE otherwise.
-*
-* @note     None.
-*
-******************************************************************************/
+ *
+ * This function transmits one packet non-blockingly through the DMA engine.
+ *
+ * @param	AxiDmaInstPtr points to the DMA engine instance
+ *
+ * @return	- XST_SUCCESS if the DMA accepts the packet successfully,
+ *		- XST_FAILURE otherwise.
+ *
+ * @note     None.
+ *
+ ******************************************************************************/
 static int SendPacket(XAxiDma * AxiDmaInstPtr)
 {
 	XAxiDma_BdRing *TxRingPtr;
@@ -509,23 +544,23 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	Status = XAxiDma_BdSetBufAddr(BdPtr, (UINTPTR) Packet);
 	if (Status != XST_SUCCESS) {
 		xil_printf("Tx set buffer addr %x on BD %x failed %d\r\n",
-		    (UINTPTR)Packet, (UINTPTR)BdPtr, Status);
+				(UINTPTR)Packet, (UINTPTR)BdPtr, Status);
 
 		return XST_FAILURE;
 	}
 
 	Status = XAxiDma_BdSetLength(BdPtr, MAX_PKT_LEN,
-				TxRingPtr->MaxTransferLen);
+			TxRingPtr->MaxTransferLen);
 	if (Status != XST_SUCCESS) {
 		xil_printf("Tx set length %d on BD %x failed %d\r\n",
-		    MAX_PKT_LEN, (UINTPTR)BdPtr, Status);
+				MAX_PKT_LEN, (UINTPTR)BdPtr, Status);
 
 		return XST_FAILURE;
 	}
 
 #if (XPAR_AXIDMA_0_SG_INCLUDE_STSCNTRL_STRM == 1)
 	Status = XAxiDma_BdSetAppWord(BdPtr,
-	    XAXIDMA_LAST_APPWORD, MAX_PKT_LEN);
+			XAXIDMA_LAST_APPWORD, MAX_PKT_LEN);
 
 	/* If Set app length failed, it is not fatal
 	 */
@@ -537,7 +572,7 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 	/* For single packet, both SOF and EOF are to be set
 	 */
 	XAxiDma_BdSetCtrl(BdPtr, XAXIDMA_BD_CTRL_TXEOF_MASK |
-						XAXIDMA_BD_CTRL_TXSOF_MASK);
+			XAXIDMA_BD_CTRL_TXSOF_MASK);
 
 	XAxiDma_BdSetId(BdPtr, (UINTPTR)Packet);
 
@@ -555,17 +590,17 @@ static int SendPacket(XAxiDma * AxiDmaInstPtr)
 
 /*****************************************************************************/
 /*
-*
-* This function checks data buffer after the DMA transfer is finished.
-*
-* @param	None
-*
-* @return	- XST_SUCCESS if validation is successful
-*		- XST_FAILURE if validation is failure.
-*
-* @note		None.
-*
-******************************************************************************/
+ *
+ * This function checks data buffer after the DMA transfer is finished.
+ *
+ * @param	None
+ *
+ * @return	- XST_SUCCESS if validation is successful
+ *		- XST_FAILURE if validation is failure.
+ *
+ * @note		None.
+ *
+ ******************************************************************************/
 static int CheckData(void)
 {
 	u8 *RxPacket;
@@ -584,8 +619,8 @@ static int CheckData(void)
 	for(Index = 0; Index < MAX_PKT_LEN; Index++) {
 		if (RxPacket[Index] != Value) {
 			xil_printf("Data error %d: %x/%x\r\n",
-			    Index, (unsigned int)RxPacket[Index],
-			    (unsigned int)Value);
+					Index, (unsigned int)RxPacket[Index],
+					(unsigned int)Value);
 
 			return XST_FAILURE;
 		}
@@ -597,18 +632,18 @@ static int CheckData(void)
 
 /*****************************************************************************/
 /**
-*
-* This function waits until the DMA transaction is finished, checks data,
-* and cleans up.
-*
-* @param	None
-*
-* @return	- XST_SUCCESS if DMA transfer is successful and data is correct,
-*		- XST_FAILURE if fails.
-*
-* @note		None.
-*
-******************************************************************************/
+ *
+ * This function waits until the DMA transaction is finished, checks data,
+ * and cleans up.
+ *
+ * @param	None
+ *
+ * @return	- XST_SUCCESS if DMA transfer is successful and data is correct,
+ *		- XST_FAILURE if fails.
+ *
+ * @note		None.
+ *
+ ******************************************************************************/
 static int CheckDmaResult(XAxiDma * AxiDmaInstPtr)
 {
 	XAxiDma_BdRing *TxRingPtr;
@@ -623,22 +658,22 @@ static int CheckDmaResult(XAxiDma * AxiDmaInstPtr)
 
 	/* Wait until the one BD TX transaction is done */
 	while ((ProcessedBdCount = XAxiDma_BdRingFromHw(TxRingPtr,
-						       XAXIDMA_ALL_BDS,
-						       &BdPtr)) == 0) {
+			XAXIDMA_ALL_BDS,
+			&BdPtr)) == 0) {
 	}
 
 	/* Free all processed TX BDs for future transmission */
 	Status = XAxiDma_BdRingFree(TxRingPtr, ProcessedBdCount, BdPtr);
 	if (Status != XST_SUCCESS) {
 		xil_printf("Failed to free %d tx BDs %d\r\n",
-		    ProcessedBdCount, Status);
+				ProcessedBdCount, Status);
 		return XST_FAILURE;
 	}
 
 	/* Wait until the data has been received by the Rx channel */
 	while ((ProcessedBdCount = XAxiDma_BdRingFromHw(RxRingPtr,
-						       XAXIDMA_ALL_BDS,
-						       &BdPtr)) == 0) {
+			XAXIDMA_ALL_BDS,
+			&BdPtr)) == 0) {
 	}
 
 	/* Check received data */
@@ -651,7 +686,7 @@ static int CheckDmaResult(XAxiDma * AxiDmaInstPtr)
 	Status = XAxiDma_BdRingFree(RxRingPtr, ProcessedBdCount, BdPtr);
 	if (Status != XST_SUCCESS) {
 		xil_printf("Failed to free %d rx BDs %d\r\n",
-		    ProcessedBdCount, Status);
+				ProcessedBdCount, Status);
 		return XST_FAILURE;
 	}
 

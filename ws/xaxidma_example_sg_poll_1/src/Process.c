@@ -3,37 +3,35 @@
 #include <stdlib.h>
 
 
-uint32_t *Image;
-uint32_t *Conv2_Result, *MaxPooling;
-uint32_t Weight[16][10];
+int32_t *Image;
+int32_t *Conv2_Result1, *MaxPooling_Result1;
+int32_t Weight[16][10];
 
 
 void Process_init(void)
 {
-	Image = (uint32_t)malloc(32*32*sizeof(uint32_t));
-	Conv2_Result = (int32_t)malloc(30*30*sizeof(int32_t));
-	MaxPooling = (int32_t)malloc(15*15*sizeof(int32_t));
-
-
+	Image = (int32_t*)malloc(32*32*sizeof(uint32_t));
+	Conv2_Result1 = (int32_t*)malloc(30*30*sizeof(int32_t));
+	MaxPooling_Result1 = (int32_t*)malloc(15*15*sizeof(int32_t));
 }
 
 void Process_Conv2_1(void)
 {
-	uint32_t pixel, weight;
+	uint32_t pixel;
 	uint32_t res[16] = {0};
 	int8_t p1, p2, p3;
 	int16_t w1, w2, w3, b;
-	for(uint32_t row = 0; row < 30; row)
+	for(uint32_t row = 0; row < 30; row++)
 	{
-		for(uint32_t column = 0; column < 30; column)
+		for(uint32_t column = 0; column < 30; column++)
 		{
 			for (uint32_t pIn = 0; pIn < 9; pIn++)
 			{
 				pixel = *(Image + (pIn % 3) + ((pIn * 32) / 3) + column + (row * 32));
 				p1 = (int8_t)(pixel & 0xff);
 				p2 = (int8_t)((pixel >> 8) & 0xff);
-				p2 = (int8_t)((pixel >> 16) & 0xff);
-				for(uint32_t fIn = 0; fIn < 16; fIn)
+				p3 = (int8_t)((pixel >> 16) & 0xff);
+				for(uint32_t fIn = 0; fIn < 16; fIn++)
 				{
 					w1 = (int16_t)(Weight[fIn][pIn] & 0x3FF);
 					if(w1 > 511)
@@ -57,7 +55,7 @@ void Process_Conv2_1(void)
 			{
 				b = (int32_t)(Weight[fIn][9] & 0xFFFF);
 				res[fIn] += b;
-				*(Conv2_Result + fIn + (column*16) + (480*row)) = res[fIn];
+				*(Conv2_Result1 + fIn + (column*16) + (480*row)) = res[fIn];
 				res[fIn] = 0;
 			}
 		}
@@ -66,18 +64,29 @@ void Process_Conv2_1(void)
 
 void Process_MaxPooling_1(void)
 {
-	int16_t data, max = {0};
-	for(uint32_t fIn = 0; fIn < 16; fIn ++)
+	int16_t data, max[16] = {0};
+	for(uint32_t row = 0 ; row < 15; row ++)
 	{
-		for(uint32_t pIn = 0; pIn < 4; pIn++)
+		for(uint32_t column = 0; column < 15; column++)
 		{
-			data = *(Cov2_Result + (pIn % 2) + (pIn /2 * 480) + fIn);
-			if (data > max)
+			for(uint32_t pIn = 0; pIn < 4; pIn++)
 			{
-				max = data;
+				for(uint32_t fIn = 0; fIn < 16; fIn ++)
+				{
+					data = *(Conv2_Result1 + (pIn % 2*16) + (pIn /2 * 480) + fIn + (column * 32) + (row * 480));
+					if (data > max[fIn])
+					{
+						max[fIn] = data;
+					}
+					if(pIn == 3)
+					{
+						*(MaxPooling_Result1 + fIn + (column * 16) + (row * 240)) = max[fIn];
+						max[fIn] = 0;
+					}
+				}
 			}
-		}
 
+		}
 	}
 }
 

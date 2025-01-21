@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="sdx.custom.platform.repository.locations" value="C:\Users\user\Desktop\TesstDMA_testagian_fuck\ws\DMA;C:\Users\user\Desktop\FPGA_DMA2\FPGA_AI_v2\ws\DMA\export\DMA;C:\Users\Mohammadreza\Desktop\DMA_TEST\ws\DMA\export\DMA"/>
-	<item key="sdx.custom.platform.repository.last.directory.dialog.location" value="C:\Users\Mohammadreza\Desktop\DMA_TEST\ws\DMA\export\DMA"/>
+	<item key="sdx.custom.platform.repository.locations" value="C:\Users\user\Desktop\TesstDMA_testagian_fuck\ws\DMA;C:\Users\Mohammadreza\Desktop\DMA_TEST\ws\DMA\export\DMA;C:\Users\user\Desktop\FPGA_DMA2\FPGA_AI_v2\ws\DMA\export\DMA"/>
+	<item key="sdx.custom.platform.repository.last.directory.dialog.location" value="C:\Users\user\Desktop\FPGA_DMA2\FPGA_AI_v2\ws\DMA\export\DMA"/>
 </section>
