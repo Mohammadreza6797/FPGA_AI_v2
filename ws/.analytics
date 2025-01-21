@@ -17,3 +17,21 @@ timestamp=[2025-01-21 00:48:24], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00
 timestamp=[2025-01-21 00:52:55], mode=WORKBENCH_START, duration=0:00:05.419, duration_ms=5419, data={}
 timestamp=[2025-01-21 00:52:56], mode=WORKBENCH_UI_INIT, duration=0:00:00.717, duration_ms=717, data={editors_count=3, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=DMA,RemoteSystemsTempFiles,xaxidma_example_sg_poll_1,xaxidma_example_sg_poll_1_system}
 timestamp=[2025-01-21 00:52:58], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.961, duration_ms=961, data={}
+timestamp=[2025-01-21 20:47:34], mode=WORKBENCH_START, duration=0:00:08.190, duration_ms=8190, data={}
+timestamp=[2025-01-21 20:47:36], mode=WORKBENCH_UI_INIT, duration=0:00:01.837, duration_ms=1837, data={editors_count=5, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=DMA,RemoteSystemsTempFiles,xaxidma_example_sg_poll_1,xaxidma_example_sg_poll_1_system}
+timestamp=[2025-01-21 20:47:38], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.717, duration_ms=1717, data={}
+timestamp=[2025-01-21 20:53:06], mode=PLATFORM_GENERATION, duration=0:00:18.798, duration_ms=18798, data={name=DMA}
+timestamp=[2025-01-21 20:53:14], mode=BUILD, duration=0:00:00.569, duration_ms=569, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 20:56:27], mode=PLATFORM_GENERATION, duration=0:00:03.152, duration_ms=3152, data={name=DMA}
+timestamp=[2025-01-21 20:56:27], mode=BUILD, duration=0:00:00.380, duration_ms=380, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 20:56:46], mode=BUILD, duration=0:00:00.496, duration_ms=496, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 20:57:02], mode=BUILD, duration=0:00:00.426, duration_ms=426, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 20:57:27], mode=BUILD, duration=0:00:00.379, duration_ms=379, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 20:57:39], mode=BUILD, duration=0:00:01.061, duration_ms=1061, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 20:57:57], mode=BUILD, duration=0:00:00.432, duration_ms=432, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 20:58:40], mode=BUILD, duration=0:00:01.002, duration_ms=1002, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 20:58:46], mode=BUILD, duration=0:00:05.863, duration_ms=5863, data={name=xaxidma_example_sg_poll_1_system, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 21:04:29], mode=BUILD, duration=0:00:00.820, duration_ms=820, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 21:04:35], mode=BUILD, duration=0:00:05.445, duration_ms=5445, data={name=xaxidma_example_sg_poll_1_system, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 21:24:00], mode=BUILD, duration=0:00:02.322, duration_ms=2322, data={name=xaxidma_example_sg_poll_1, configuration=Debug, clean_build=false}
+timestamp=[2025-01-21 21:24:09], mode=BUILD, duration=0:00:08.684, duration_ms=8684, data={name=xaxidma_example_sg_poll_1_system, configuration=Debug, clean_build=false}

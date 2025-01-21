@@ -1,0 +1,67 @@
+#include "xbasic_types.h"
+#include "Process.h"
+#include <stdlib.h>
+
+
+uint32_t *Image;
+uint32_t *Conv2_Result, *MaxPooling;
+uint32_t Weight[16][10];
+
+
+void Process_init(void)
+{
+	Image = (uintt32_t)malloc(32*32*sizeof(uint32_t));
+	Conv2_Result = (uintt32_t)malloc(30*30*sizeof(uint32_t));
+	MaxPooling = (uintt32_t)malloc(15*15*sizeof(uint32_t));
+
+
+}
+
+void Process_Conv2(void)
+{
+	uint32_t pixel, weight;
+	uint32_t res[16] = {0};
+	int8_t p1, p2, p3;
+	int16_t w1, w2, w3, b;
+	for(uint32_t row = 0; row < 30; row)
+	{
+		for(uint32_t column = 0; column < 30; column)
+		{
+			for (uint32_t pIn = 0; pIn < 9; pIn++)
+			{
+				pixel = *(Image + (pIn % 3) + ((pIn * 32) / 3) + column + (row * 32));
+				p1 = (int8_t)(pixel & 0xff);
+				p2 = (int8_t)((pixel >> 8) & 0xff);
+				p2 = (int8_t)((pixel >> 16) & 0xff);
+				for(uint32_t fIn = 0; fIn < 16; fIn)
+				{
+					w1 = (int16_t)(Weight[fIn][pIn] & 0x3FF);
+					if(w1 > 511)
+					{
+						w1 = (w1 - 1024);
+					}
+					w2 = (int16_t)((Weight[fIn][pIn] >> 10) & 0x3FF);
+					if(w2 > 511)
+					{
+						w2 = (w1 - 1024);
+					}
+					w3 = (int16_t)(Weight[fIn][pIn] >> 20) & 0x3FF);
+					if(w3 > 511)
+					{
+						w3 = (w1 - 1024);
+					}
+					res[fIn] += (uint32_t)(p1*w1) + (uint32_t)(p2*w2) + (uint32_t)(p3*w3);
+				}
+			}
+			for(uint32_t fIn = 0; fIn < 16; fIn ++)
+			{
+				b = (int32_t)(Weight[fIn][9] & 0xFFFF);
+				res[fIn] += b;
+				*(Conv2_Result + fIn + (column*16) + (480*row)) = res[fIn];
+				res[fin] = 0;
+			}
+		}
+	}
+}
+
+

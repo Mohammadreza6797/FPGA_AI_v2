@@ -1,32 +1,70 @@
-2025-01-21T00:31:58.744654900255-00:31:58 **** Incremental Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
+2025-01-21T21:23:57.895683500255-21:23:57 **** Incremental Build of configuration Debug for project xaxidma_example_sg_poll_1 ****
 000-make all 
 000-make --no-print-directory pre-build
 000-a9-linaro-pre-build-step
 000-' '
 000-make --no-print-directory main-build
+000-'Building file: ../src/Process.c'
+000-'Invoking: ARM v7 gcc compiler'
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/Process.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/Process.d" -MT"src/Process.o" -o "src/Process.o" "../src/Process.c"
+000-In file included from ../src/Process.c:1:
+000/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h102-1-1#warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]1-C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+000-  102 | #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+000-      |  ^~~~~~~
+000/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h103-1-1#warning Please refer the Standalone BSP UG647 for further details [-Wcpp]1-C:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+000-  103 | #warning  Please refer the Standalone BSP UG647 for further details
+000-      |  ^~~~~~~
+000-../src/Process.c: In function 'Process_init':
+000/xaxidma_example_sg_poll_1/src/Process.c13-1-1assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long unsigned int' makes pointer from integer without a cast [-Wint-conversion]1-../src/Process.c:13:15: warning: assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long unsigned int' makes pointer from integer without a cast [-Wint-conversion]
+000-   13 |         Image = (uint32_t)malloc(32*32*sizeof(uint32_t));
+000-      |               ^
+000/xaxidma_example_sg_poll_1/src/Process.c14-1-1assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long int' makes pointer from integer without a cast [-Wint-conversion]1-../src/Process.c:14:22: warning: assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long int' makes pointer from integer without a cast [-Wint-conversion]
+000-   14 |         Conv2_Result = (int32_t)malloc(30*30*sizeof(int32_t));
+000-      |                      ^
+000/xaxidma_example_sg_poll_1/src/Process.c15-1-1assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long int' makes pointer from integer without a cast [-Wint-conversion]1-../src/Process.c:15:20: warning: assignment to 'uint32_t *' {aka 'long unsigned int *'} from 'long int' makes pointer from integer without a cast [-Wint-conversion]
+000-   15 |         MaxPooling = (int32_t)malloc(15*15*sizeof(int32_t));
+000-      |                    ^
+000-../src/Process.c: In function 'Process_Conv2':
+000/xaxidma_example_sg_poll_1/src/Process.c26-1-1statement with no effect [-Wunused-value]1-../src/Process.c:26:41: warning: statement with no effect [-Wunused-value]
+000-   26 |         for(uint32_t row = 0; row < 30; row)
+000-      |                                         ^~~
+000/xaxidma_example_sg_poll_1/src/Process.c28-1-1statement with no effect [-Wunused-value]1-../src/Process.c:28:55: warning: statement with no effect [-Wunused-value]
+000-   28 |                 for(uint32_t column = 0; column < 30; column)
+000-      |                                                       ^~~~~~
+000/xaxidma_example_sg_poll_1/src/Process.c36-1-1statement with no effect [-Wunused-value]1-../src/Process.c:36:65: warning: statement with no effect [-Wunused-value]
+000-   36 |                                 for(uint32_t fIn = 0; fIn < 16; fIn)
+000-      |                                                                 ^~~
+000/xaxidma_example_sg_poll_1/src/Process.c22-1-1unused variable 'weight' [-Wunused-variable]1-../src/Process.c:22:25: warning: unused variable 'weight' [-Wunused-variable]
+000-   22 |         uint32_t pixel, weight;
+000-      |                         ^~~~~~
+000/xaxidma_example_sg_poll_1/src/Process.c53-1-1'p3' may be used uninitialized [-Wmaybe-uninitialized]1-../src/Process.c:53:106: warning: 'p3' may be used uninitialized [-Wmaybe-uninitialized]
+000-   53 |                                         res[fIn] += (uint32_t)(p1*w1) + (uint32_t)(p2*w2) + (uint32_t)(p3*w3);
+000-      |                                                                                                       ~~~^~~~
+000-'Finished building: ../src/Process.c'
+000-' '
 000-'Building file: ../src/xaxidma_example_sg_poll.c'
 000-'Invoking: ARM v7 gcc compiler'
-000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xaxidma_example_sg_poll.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/xaxidma_example_sg_poll.d" -MT"src/xaxidma_example_sg_poll.o" -o "src/xaxidma_example_sg_poll.o" "../src/xaxidma_example_sg_poll.c"
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xaxidma_example_sg_poll.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bspinclude/include -MMD -MP -MF"src/xaxidma_example_sg_poll.d" -MT"src/xaxidma_example_sg_poll.o" -o "src/xaxidma_example_sg_poll.o" "../src/xaxidma_example_sg_poll.c"
 000/xaxidma_example_sg_poll_1/src/xaxidma_example_sg_poll.c94-1-1#warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, DEFAULT SET TO 0x01000000 [-Wcpp]1-../src/xaxidma_example_sg_poll.c:94:2: warning: #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, DEFAULT SET TO 0x01000000 [-Wcpp]
 000-   94 | #warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, \
 000-      |  ^~~~~~~
 000-../src/xaxidma_example_sg_poll.c: In function 'SendPacket':
-000/xaxidma_example_sg_poll_1/src/xaxidma_example_sg_poll.c474-1-1unused variable 'BdCurPtr' [-Wunused-variable]1-../src/xaxidma_example_sg_poll.c:474:29: warning: unused variable 'BdCurPtr' [-Wunused-variable]
-000-  474 |         XAxiDma_Bd *BdPtr, *BdCurPtr;
+000/xaxidma_example_sg_poll_1/src/xaxidma_example_sg_poll.c477-1-1unused variable 'BdCurPtr' [-Wunused-variable]1-../src/xaxidma_example_sg_poll.c:477:29: warning: unused variable 'BdCurPtr' [-Wunused-variable]
+000-  477 |         XAxiDma_Bd *BdPtr, *BdCurPtr;
 000-      |                             ^~~~~~~~
 000-'Finished building: ../src/xaxidma_example_sg_poll.c'
 000-' '
 000-'Building target: xaxidma_example_sg_poll_1.elf'
 000-'Invoking: ARM v7 gcc linker'
-000-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bsplib/lib -o "xaxidma_example_sg_poll_1.elf"  ./src/xaxidma_example_sg_poll.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+000-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bsplib/lib -o "xaxidma_example_sg_poll_1.elf"  ./src/Process.o ./src/xaxidma_example_sg_poll.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 000-'Finished building target: xaxidma_example_sg_poll_1.elf'
 000-' '
 000-'Invoking: ARM v7 Print Size'
 000-arm-none-eabi-size xaxidma_example_sg_poll_1.elf  |tee "xaxidma_example_sg_poll_1.elf.size"
 000-   text	   data	    bss	    dec	    hex	filename
-000-  37749	   2256	  24504	  64509	   fbfd	xaxidma_example_sg_poll_1.elf
+000-  38709	   2256	2114120	2155085	 20e24d	xaxidma_example_sg_poll_1.elf
 000-'Finished building: xaxidma_example_sg_poll_1.elf.size'
 000-' '
 00255-
-00:31:59 Build Finished (took 794ms)
+21:24:00 Build Finished (took 2s.313ms)
 

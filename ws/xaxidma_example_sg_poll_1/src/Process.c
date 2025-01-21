@@ -10,14 +10,14 @@ uint32_t Weight[16][10];
 
 void Process_init(void)
 {
-	Image = (uintt32_t)malloc(32*32*sizeof(uint32_t));
-	Conv2_Result = (uintt32_t)malloc(30*30*sizeof(uint32_t));
-	MaxPooling = (uintt32_t)malloc(15*15*sizeof(uint32_t));
+	Image = (uint32_t)malloc(32*32*sizeof(uint32_t));
+	Conv2_Result = (int32_t)malloc(30*30*sizeof(int32_t));
+	MaxPooling = (int32_t)malloc(15*15*sizeof(int32_t));
 
 
 }
 
-void Process_Conv2(void)
+void Process_Conv2_1(void)
 {
 	uint32_t pixel, weight;
 	uint32_t res[16] = {0};
@@ -27,7 +27,7 @@ void Process_Conv2(void)
 	{
 		for(uint32_t column = 0; column < 30; column)
 		{
-			for (uint32_t pIn = 0; i < 9; i++)
+			for (uint32_t pIn = 0; pIn < 9; pIn++)
 			{
 				pixel = *(Image + (pIn % 3) + ((pIn * 32) / 3) + column + (row * 32));
 				p1 = (int8_t)(pixel & 0xff);
@@ -45,23 +45,39 @@ void Process_Conv2(void)
 					{
 						w2 = (w1 - 1024);
 					}
-					w3 = (int16_t)(Weight[fIn][pIn] >> 20) & 0x3FF);
+					w3 = (int16_t)((Weight[fIn][pIn] >> 20) & 0x3FF);
 					if(w3 > 511)
 					{
 						w3 = (w1 - 1024);
 					}
-					res[fIn] += p1*w1 + p2*w2 + p3*w3;
+					res[fIn] += (uint32_t)(p1*w1) + (uint32_t)(p2*w2) + (uint32_t)(p3*w3);
 				}
 			}
 			for(uint32_t fIn = 0; fIn < 16; fIn ++)
 			{
-				b = (int16_t)(Weight[fIn][9] & 0xFFFF);
+				b = (int32_t)(Weight[fIn][9] & 0xFFFF);
 				res[fIn] += b;
 				*(Conv2_Result + fIn + (column*16) + (480*row)) = res[fIn];
-				res[fin] = 0;
+				res[fIn] = 0;
 			}
 		}
 	}
 }
 
+void Process_MaxPooling_1(void)
+{
+	int16_t data, max = {0};
+	for(uint32_t fIn = 0; fIn < 16; fIn ++)
+	{
+		for(uint32_t pIn = 0; pIn < 4; pIn++)
+		{
+			data = *(Cov2_Result + (pIn % 2) + (pIn /2 * 480) + fIn);
+			if (data > max)
+			{
+				max = data;
+			}
+		}
+
+	}
+}
 

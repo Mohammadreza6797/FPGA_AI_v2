@@ -40,7 +40,7 @@ main-build: xaxidma_example_sg_poll_1.elf secondary-outputs
 xaxidma_example_sg_poll_1.elf: $(OBJS) ../src/lscript.ld $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM v7 gcc linker'
-	arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/user/Desktop/FPGA_DMA2/FPGA_AI_v2/ws/DMA/export/DMA/sw/DMA/standalone_domain/bsplib/lib -o "xaxidma_example_sg_poll_1.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/Mohammadreza/Desktop/DMA_TEST/ws/DMA/export/DMA/sw/DMA/standalone_domain/bsplib/lib -o "xaxidma_example_sg_poll_1.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

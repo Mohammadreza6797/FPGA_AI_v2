@@ -16,3 +16,6 @@ platform write
 platform generate -domains 
 platform generate
 platform active {DMA}
+platform generate
+platform active {DMA}
+platform generate -domains 
